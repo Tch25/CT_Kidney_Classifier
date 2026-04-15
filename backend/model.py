@@ -10,9 +10,6 @@ class_names = ['Cyst', 'Normal', 'Stone', 'Tumor']
 input_size = (224, 224)
 
 def load_model_once():
-    """
-    Load the trained model
-    """
     global model
 
     #Model path
@@ -24,6 +21,7 @@ def load_model_once():
     model = load_model(model_path)
     print(f"Model loaded from {model_path}")
     return model
+
 
 def preprocess_image(image_array):
     """

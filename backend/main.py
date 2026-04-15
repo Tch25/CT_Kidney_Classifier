@@ -43,7 +43,7 @@ def health():
 #Prediction Endpoint
 @app.post("/predict")
 async def predict_endpoint(file: UploadFile = File(...)):
-    #Step 1: Validate i'ts and image
+    #Step 1: Validate it's an image
     if not file.content_type.startswith("image/"):
         raise HTTPException(400, "File must be an image")
 
