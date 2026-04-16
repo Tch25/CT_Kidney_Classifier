@@ -44,9 +44,9 @@ def health():
 #Prediction Endpoint
 @app.post("/predict")
 async def predict_endpoint(file: UploadFile = File(...)):
-    #Step 1: Validate it's an image
-    if not file.content_type.startswith("image/"):
-        raise HTTPException(400, "File must be an image")
+    # Step 1: Validate it's an image
+    if file.content_type is None or not file.content_type.startswith("image/"):
+        raise HTTPException(400, f"File must be an image. Got content_type: {file.content_type}")
 
     #Step 2: Read and upload file
     contents = await file.read()
@@ -62,8 +62,6 @@ async def predict_endpoint(file: UploadFile = File(...)):
     #Step 5: Get prediction from the model
     result = predict(image_array)
 
-    #Step 6: Return the result as JSON
-    #return JSONResponse(content = result)
     #Step 6: Generate report
     report = generate_report(
         result['prediction'],
