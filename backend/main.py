@@ -13,6 +13,7 @@ sys.path.append(os.path.dirname(__file__))
 
 #Import the model functions
 from model import load_model_once, predict, class_names
+from report import generate_report
 
 #Create the FastAPI app
 app = FastAPI(
@@ -62,4 +63,17 @@ async def predict_endpoint(file: UploadFile = File(...)):
     result = predict(image_array)
 
     #Step 6: Return the result as JSON
-    return JSONResponse(content = result)
+    #return JSONResponse(content = result)
+    #Step 6: Generate report
+    report = generate_report(
+        result['prediction'],
+        result['confidence']
+    )
+
+    #Step 7: Return the result as JSON
+    return JSONResponse(content = {
+        'prediction': result['prediction'],
+        'confidence': result['confidence'],
+        'all_scores': result['all_scores'],
+        'report': report
+    })
