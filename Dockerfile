@@ -16,7 +16,7 @@ RUN pip install --upgrade pip
 COPY . .
 
 #open port 8000 for traffic
-EXPOSE 8000
+EXPOSE 8080
 
 #cOMMAND TO START THE api
-CMD ["uvicorn", "backend.main:app", "--host", "0.0.0.0", "--port", "8000"]
+CMD ["uvicorn", "backend.main:app", "--host", "0.0.0.0", "--port", "8080"]

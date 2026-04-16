@@ -3,3 +3,4 @@ __pycache__/
 *.keras
 .env
 model/*.h5
+.env.yaml
