@@ -3,3 +3,18 @@ __pycache__/
 *.keras
 .env
 model/*.h5
+
+# macOS garbage
+*.Zone.Identifier
+.DS_Store
+
+# Python cache
+__pycache__/
+*.pyc
+
+# IDE
+.vscode/
+.idea/
+
+# Local test files
+test_model_local.py
