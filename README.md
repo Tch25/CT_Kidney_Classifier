@@ -78,13 +78,17 @@ CT_Kidney_Classifier/
 │ └── requirements.txt
 ├── frontend/
 │ ├── app.py # Streamlit UI
+│ ├── Dockerfile
 │ └── requirements.txt
 ├── model/
 │ └── custom_cnn_kidney_model.h5
-├── notebooks/
-│ └── training.ipynb # Model training on Kaggle
+├── tests/
+│ ├── test_backend.py # API tests
+│ ├── test_model.py
+│ └── requirements.txt
 ├── Dockerfile
 ├── docker-compose.yml
+├── requirements.txt # Root requirements (reference only)
 └── README.md
 ```
 ## 🚀 Local Development
